@@ -1,21 +1,3 @@
--------------------------------------------------------------------------------
--- fir_decim.vhd
---
--- Generic direct-form FIR filter with built-in decimation by DECIM_FACTOR.
--- Coefficients are supplied as a plain array of integers (COEFFS), scaled
--- as COEF_W-bit signed values representing value / 2**(COEF_W-1) (i.e.
--- a unity-gain-normalized fixed-point convention). This matches the
--- output of ddc_pkg.design_lowpass_coeffs, which can be used to supply
--- COEFFS directly.
---
--- This is a straightforward (non-polyphase) implementation: every tap is
--- evaluated on every input sample and the result is only latched every
--- DECIM_FACTOR-th sample. It is simple and fully synthesizable, but for
--- large tap counts / high sample rates a polyphase structure would use
--- DSP resources more efficiently -- see README for notes.
--------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
