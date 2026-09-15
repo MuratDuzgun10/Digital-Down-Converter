@@ -7,14 +7,7 @@
 --   -> NUM_STAGES cascaded combs (differential delay DIFF_DELAY) running
 --      at the decimated output rate.
 --
--- INTERNAL_W must be large enough to avoid overflow in the integrator
--- accumulators:
---      INTERNAL_W >= IN_W + ceil( NUM_STAGES * log2(DECIM_FACTOR*DIFF_DELAY) )
---
--- OUT_SHIFT is the number of bits to arithmetically shift right (with
--- rounding) to remove the CIC's processing gain before truncating to
--- OUT_W bits. For an integer/comb CIC this gain is:
---      OUT_SHIFT ~= ceil( NUM_STAGES * log2(DECIM_FACTOR*DIFF_DELAY) )
+
 -------------------------------------------------------------------------------
 
 
@@ -112,7 +105,7 @@ begin
                     comb_out(k+1) <= (others=>'0');
                  elsif decim_strobe = '1' then
                     comb_bank(k)(0) <= comb_out(k);
-                    for d in 1 to DIFF_DELAY - 1 loop --ýf we need to increase the stages of DIFF_DELAY this loop will start acting but for now we do not use it
+                    for d in 1 to DIFF_DELAY - 1 loop --Ã½f we need to increase the stages of DIFF_DELAY this loop will start acting but for now we do not use it
                         comb_bank(k)(d) <= comb_bank(k)(d-1);
                     end loop;
                     comb_out(k+1) <= comb_out(k) - comb_bank(k)(DIFF_DELAY - 1);
