@@ -1,16 +1,3 @@
--------------------------------------------------------------------------------
--- cic_decimator.vhd
---
--- Generic N-stage CIC (Hogenauer) decimator:
---   NUM_STAGES  cascaded integrators running at the input rate
---   -> decimate by DECIM_FACTOR (R)
---   -> NUM_STAGES cascaded combs (differential delay DIFF_DELAY) running
---      at the decimated output rate.
---
-
--------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
