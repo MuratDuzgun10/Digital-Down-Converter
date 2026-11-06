@@ -1,25 +1,3 @@
--------------------------------------------------------------------------------
--- ddc_pkg.vhd
---
--- Shared types and fixed-point helper functions for the DDC project.
---   * int_array_t          : generic integer array (used for FIR coefficient
---                             generics, so entities can accept coefficients
---                             as a plain array of integers).
---   * round_shift           : arithmetic right-shift by an explicit number of
---                             bits with round-to-nearest, followed by a
---                             resize down to the requested output width.
---                             Used everywhere a fixed-point product or
---                             accumulator needs to be rescaled (mixer,
---                             CIC, FIR).
---   * design_lowpass_coeffs  : windowed-sinc (Hamming window) low-pass FIR
---                             coefficient generator, evaluated at
---                             elaboration time so it can be used directly
---                             as a generic default value. This keeps the
---                             design self-contained: no external
---                             coefficient file is required to synthesize
---                             or simulate the project.
--------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
