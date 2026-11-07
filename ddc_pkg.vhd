@@ -14,19 +14,7 @@ package ddc_pkg is
 end ddc_pkg;
 
 package body ddc_pkg is
-    -----------------------------------------------------------------------
-    -- round_shift
-    --   Arithmetic-shift-right din by 'shift' bits with round-to-nearest
-    --   (ties round up), then narrow to 'wout' bits.
-    --
-    --   NOTE: this assumes the caller has allocated enough headroom bits
-    --   in din so that the value, once scaled down by 2**shift, actually
-    --   fits in 'wout' bits. If it does not, the result wraps just like
-    --   ordinary two's-complement truncation (no explicit saturation
-    --   logic is inserted). Size internal accumulator widths generously
-    --   to avoid this.
-    -----------------------------------------------------------------------
-    
+                               
     function round_shift(din : signed; shift : natural; wout : natural) return signed is
         variable ext : signed(din'length downto 0);
         variable rounded : signed(din'length downto 0);
