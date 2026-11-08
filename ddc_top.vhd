@@ -24,7 +24,7 @@ entity ddc_top is
         FIR_TAPS : positive := 21;
         FIR_COEF_W : positive := 16;
         FIR_CUTOFF : real := 0.4;
-        FIR_COEFFS : int_array_t := design_lowpass_coeffs(21, 16, 0.4);
+        FIR_COEFFS : int_array_t := design_lowpass_coeffs(21, 16, 0.2);
         FIR_DECIM : positive := 2;
 
         OUT_W : positive := 16
